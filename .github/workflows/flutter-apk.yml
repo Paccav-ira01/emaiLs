@@ -2,8 +2,8 @@ name: Build Flutter APK
 
 on:
   push:
-    branches: [ main ]  # ou outro branch que você usa
-  workflow_dispatch:     # permite disparar manualmente pelo GitHub
+    branches: [ main ]  # ou o nome do seu branch principal
+  workflow_dispatch:     # permite rodar manualmente
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'  # use a versão compatível com o FlutterFlow atual
+          flutter-version: '3.22.1'  # Compatível com Dart >= 3.5.0
 
       - name: Install dependencies
         run: flutter pub get
@@ -29,4 +29,3 @@ jobs:
         with:
           name: flutterflow-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
-
